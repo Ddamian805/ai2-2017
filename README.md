@@ -70,7 +70,7 @@ not_bad
  OK  got: "It's bad yet not" expected: "It's bad yet not"
 front_back
 ```
-## lab1-warmup.py
+## lab1-warmap.py
 ```
 helloworld()
     "Hello, world!"
