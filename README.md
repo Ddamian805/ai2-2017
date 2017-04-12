@@ -17,9 +17,9 @@ sort_last
  ```
 
 
-list2.py
+## list2.py
 
-
+```
 remove_adjacent
  OK  got: [1, 2, 3] expected: [1, 2, 3]
  OK  got: [2, 3] expected: [2, 3]
@@ -28,10 +28,10 @@ linear_merge
  OK  got: ['aa', 'bb', 'cc', 'xx', 'zz'] expected: ['aa', 'bb', 'cc', 'xx', 'zz']
  OK  got: ['aa', 'bb', 'cc', 'xx', 'zz'] expected: ['aa', 'bb', 'cc', 'xx', 'zz']
  OK  got: ['aa', 'aa', 'aa', 'bb', 'bb'] expected: ['aa', 'aa', 'aa', 'bb', 'bb']
+```
 
-
-string1.py
-
+## string1.py
+```
 donuts
  OK  got: 'Number of donuts: 4' expected: 'Number of donuts: 4'
  OK  got: 'Number of donuts: 9' expected: 'Number of donuts: 9'
@@ -53,12 +53,12 @@ mix_up
  OK  got: 'spash gnort' expected: 'spash gnort'
  OK  got: 'fizzy perm' expected: 'fizzy perm'
 
-
-lab1 warmap
-
-string2.py
+```
 
 
+## string2.py
+
+```
 verbing
  OK  got: 'hailing' expected: 'hailing'
  OK  got: 'swimingly' expected: 'swimingly'
@@ -69,9 +69,9 @@ not_bad
  OK  got: 'This tea is not hot' expected: 'This tea is not hot'
  OK  got: "It's bad yet not" expected: "It's bad yet not"
 front_back
-
+```
 ## lab1-warmup.py
-
+```
 helloworld()
     "Hello, world!"
 
@@ -109,4 +109,4 @@ collatz(8)
 
 ftoc(243)
     117.22222222222223
-
+```
