@@ -142,7 +142,12 @@ s = [0] * 3
         gcd(14, 15) => 1
         gcd(3, 9) => 3
         gcd(1, 1) => 1
-lab3_functions.py
+        
+        
+        ```
+## lab3_functions.py
+
+```
 
 def print_two(a,b):
     print("Arguments: {0} and {1}".format(a,b))
