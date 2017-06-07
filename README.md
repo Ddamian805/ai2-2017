@@ -110,3 +110,247 @@ collatz(8)
 ftoc(243)
     117.22222222222223
 ```
+
+
+
+## lab2_datastructures.py
+
+```
+
+s = [0] * 3
+    s[0] += 1
+    print(s)
+      Wynik: [1, 0, 0]
+
+    s = [''] * 3
+    s[0] += 'a'
+    print(s)
+      Wynik: ['a', '', '']
+
+    s = [[]] * 3
+    s[0] += [1]
+    print(s)
+      Wynik: [[1], [1], [1]]
+
+
+    gcd(a, b):
+      while b != 0:
+          (a, b) = (b, a % b)
+      print(a)
+    
+        gcd(10, 25) => 5
+        gcd(14, 15) => 1
+        gcd(3, 9) => 3
+        gcd(1, 1) => 1
+lab3_functions.py
+
+def print_two(a,b):
+    print("Arguments: {0} and {1}".format(a,b))
+
+    print_two() => brak dwóch argumentów
+    print_two(4,1) => Valid
+    print_two(41) => brakuje argumentu
+    print_two(a=4, 1) => Invalid
+    print_two(4, a=1) => podwójny argument a
+    print_two(4, 1, 1) => Trzy zamiast dwóch argumentów
+    print_two(b=4, 1) => Invalid
+    print_two(a=4, b=1) => Valid Arguments: 4 and 1
+    print_two(b=1, a=4) => Valid Arguments: 4 and 1
+    print_two(1, a=1) => podwójny argument a
+    print_two(4, 1, b=1) => podwójny argument b
+    
+    def keyword_args(a, b=1, c='X', d=None):
+    print("a:", a)
+    print("b:", b)
+    print("c:", c)
+    print("d:", d)
+
+    keyword_args(5)
+    a: 5
+    b: 1
+    c: X
+    d: None
+    keyword_args(a=5)
+    a: 5
+    b: 1
+    c: X
+    d: None
+    keyword_args(5,8)
+    a: 5
+    b: 8
+    c: X
+    d: None
+    keyword_args(5,2,c=4)
+    a: 5
+    b: 2
+    c: 4
+    d: None
+    keyword_args(5,0,1)
+    a: 5
+    b: 0
+    c: 1
+    d: None
+    keyword_args(5,2,d=8,c=4)
+    a: 5
+    b: 2
+    c: 4
+    d: 8
+    keyword_args(5,2,0,1,"") => TypeError: keyword_args() takes from 1 to 4 positional arguments but 5 were given
+    keyword_args(c=7,1) => SyntaxError: positional argument follows keyword argument
+    keyword_args(c=7,a=1)
+    a: 1
+    b: 1
+    c: 7
+    d: None
+    keyword_args(5,2,[],5)
+    a: 5
+    b: 2
+    c: []
+    d: 5
+    keyword_args(1,7,e=6) => TypeError: keyword_args() got an unexpected keyword argument 'e'
+    keyword_args(1,c=7)
+    a: 1
+    b: 1
+    c: 7
+    d: None
+    keyword_args(5,2,b=4) => TypeError: keyword_args() got multiple values for argument 'b'
+
+def variadic(*args, **kwargs):
+    print("Positional:", args)
+    print("Keyword:", kwargs)
+    
+    variadic(2,3,5,7)
+    Positional: (2, 3, 5, 7)
+    Keyword: {}
+    variadic(1,1,n=1)
+    Positional: (1, 1)
+    Keyword: {'n': 1}
+    variadic(n=1,2,3) => SyntaxError: positional argument follows keyword argument
+    variadic()
+    Positional: ()
+    Keyword: {}
+    variadic(cs="Computer Science", pd="Product Design")
+    Positional: ()
+    Keyword: {'pd': 'Product Design', 'cs': 'Computer Science'}
+    variadic(cs="Computer Science", cs="CompSci", cs="CS") => SyntaxError: keyword argument repeated
+    variadic(5,8,k=1,swap=2)
+    Positional: (5, 8)
+    Keyword: {'swap': 2, 'k': 1}
+    variadic(8, *[3, 4, 5], k=1, **{'a':5, 'b':'x'})
+    Positional: (8, 3, 4, 5)
+    Keyword: {'a': 5, 'b': 'x', 'k': 1}
+    variadic(*[8, 3], *[4, 5], k=1, **{'a':5, 'b':'x'})
+    Positional: (8, 3, 4, 5)
+    Keyword: {'a': 5, 'b': 'x', 'k': 1}
+    variadic(*[3, 4, 5], 8, *(4, 1), k=1, **{'a':5, 'b':'x'})
+    Positional: (3, 4, 5, 8, 4, 1)
+    Keyword: {'a': 5, 'b': 'x', 'k': 1}
+    variadic({'a':5, 'b':'x'}, *{'a':5, 'b':'x'}, **{'a':5, 'b':'x'})
+    Positional: ({'a': 5, 'b': 'x'}, 'a', 'b')
+    Keyword: {'a': 5, 'b': 'x'}
+    
+def speak_excitedly(a,b=1, c=False):
+    a += '!' * b
+    if (c==True):
+        print(a.upper())
+    else:
+        print(a)
+        
+    speak_excitedly("Alan", 2, True) => ALAN!!
+
+def average(*a):
+    if not a:
+        print(None)
+    else:
+        print(sum(a)/len(a))
+   
+    average() => None
+    average(1,76,23,5) => 26.25
+
+def say_hello():
+    print("Hello!")
+
+    print(say_hello()) => Hello!
+
+def echo(arg=None):
+    print("arg:", arg)
+    return arg
+
+    print(echo()) => None
+    print(echo(5)) => arg: None
+    
+    def drive(has_car):
+    if not has_car:
+        return
+    return 100  # miles
+
+>>> print(say_hello())
+Hello!
+None
+>>> print(echo())
+arg: None
+None
+>>> print(echo(5))
+arg: 5
+5
+>>> print(echo("Hello"))
+arg: Hello
+Hello
+>>> drive(False)
+>>> drive(True)
+100
+>>> 
+
+```
+## Lab4.py
+
+```
+
+
+>>> gcd(2,2)
+2
+>>> gcd(2,5)
+1
+>>> lcm(2,2)
+2
+>>> lcm(2,8)
+8
+>>>
+```
+
+## lab4b.py
+
+```
+
+
+>>> fact(3)
+6
+>>> fact(7)
+5040
+>>> 
+
+```
+
+## lab4c.py
+
+```
+
+
+['PyThOn', 'wOrLD']
+>>> 
+
+```
+
+## lab4d.py
+
+```
+
+
+>>> generate_triangles()
+<generator object generate_triangles at 0x02E24900>
+>>> triangles_under(5)
+0
+1
+3
+
+```
